@@ -1,0 +1,25 @@
+    PANTALLA
+҉ C̶r̶e̶a̶r̶ ̶c̶l̶a̶s̶e̶ ̶P̶a̶n̶t̶a̶l̶l̶a̶
+҉ ̶I̶n̶s̶t̶a̶n̶c̶i̶a̶r̶ ̶c̶l̶a̶s̶e̶ ̶P̶a̶n̶t̶a̶l̶l̶a̶
+҉ ̶A̶s̶e̶g̶u̶r̶a̶r̶s̶e̶ ̶d̶e̶ ̶q̶u̶e̶ ̶l̶o̶ ̶q̶u̶e̶ ̶a̶n̶t̶e̶s̶ ̶h̶a̶c̶i̶a̶ ̶l̶a̶ ̶c̶l̶a̶s̶e̶,̶ ̶a̶h̶o̶r̶a̶ ̶l̶o̶ ̶h̶a̶g̶a̶ ̶l̶a̶ ̶i̶n̶s̶t̶a̶n̶c̶i̶a̶
+(Revisar los metodos que debe tener la pantalla)
+Verificar que los metodos de la pantalla utilicen los atributos de la pantalla y no elementos en memoria
+
+    ATRIBUTOS
+imagenEtiqueta en Vino
+listas (varias) en Gestor
+
+Logica de vinos, que no sea el gestor el que resuelve todo, sino que al llamar a un metodo, se llame a otro dentro de ese
+    (Llamo a A, A llama a B, B a C y C devuelve los datos a B, que se los devuelve a A)
+No mandar objetos a la pantalla, solo datos
+FinCU()
+
+Separar en 3 layers (lo que se muestra, la logica de negocio y el back creo)
+
+Agregar comentarios útiles
+
+
+
+METODOS PARA AGREGAR A LOS DIAGRAMAS
+    Resenia
+        obtenerFechaResenia()

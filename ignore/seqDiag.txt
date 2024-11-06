@@ -1,0 +1,68 @@
+https://sequencediagram.org/
+
+title Diagrama de Secuencia: Ranking de Vinos
+
+actor ":Enófilo" as EN
+boundary ":PantallaRankingVinos" as PRV
+control ":GestorRankingVinos" as GRV
+entity ":Vino" as VI
+entity ":Resenia" as RE
+entity ":Bodega" as BO
+entity ":RegionVitivinicola" as RV
+entity ":Provincia" as PR
+entity ":Pais" as PA
+entity ":Varietal" as VA
+boundary ":InterfazExcel" as IE
+
+EN->PRV:opcionGenerarRankingVinos()
+PRV->PRV:habilitarPantalla()
+PRV->GRV:opcionGenerarRankingVinos()
+GRV->PRV:solicitarSelFechaDesdeHasta()
+EN->PRV:tomarSelFechaDesde()
+EN->PRV:tomarSelFechaHasta()
+PRV->PRV:validarPeriodo()
+PRV->GRV:tomarSelFechaDesde()
+PRV->GRV:tomarSelFechaHasta()
+GRV->PRV:solicitarSelTipoResenia()
+EN->PRV:tomarSelTipoResenia()
+PRV->GRV:tomarSelTipoResenia()
+GRV->PRV:solicitarSelTipoVisualizacion()
+EN->PRV:tomarSelTipoVisualizacion()
+PRV->GRV:tomarSelTipoVisualizacion()
+GRV->PRV:solicitarConfirmacionGenResenia()
+EN->PRV:tomarConfirmacionGenResenia()
+PRV->GRV:tomarConfirmacionGenResenia()
+
+GRV->GRV:tenesReseniasDeTipoEnPeriodo()
+group loop Recorre los vinos [Mientras haya vinos]
+GRV->VI:tenesReseniasDeTipoEnPeriodo()
+group loop Recorre las resenias de los vinos [Mientras haya resenias]
+VI->RE:sosDePeriodo()
+VI->RE:sosDeSommelier()
+end
+GRV->VI:getNombre()
+GRV->VI:getPrecio()
+GRV->VI:buscarInfoBodega()
+VI->BO:getNombre()
+VI->BO:obtenerRegionPais()
+BO->RV:getNombre()
+BO->RV:obtenerPais()
+RV->PR:obtenerPais()
+PR->PA:getNombre()
+GRV->VI:buscarInfoVarietal()
+VI->VA:getDescripcion()
+end
+GRV->GRV:calcularPromedioCalificacionSommelierEnPeriodo()
+group loop Recorre los vinos [Mientras haya vinos]
+GRV->VI:calcularPromedioCalificacionSommelierEnPeriodo()
+group loop Recorre las resenias de los vinos [Mientras haya resenias]
+VI->RE:sosDePeriodo()
+VI->RE:sosDeSomelier()
+VI->RE:getPuntaje()
+end
+VI->VI:calcularPromedio()
+end
+GRV->GRV:ordenarVinos()
+GRV->IE:generarArchivo()
+GRV->PRV:informarCreacion()
+GRV->GRV:finCU()
