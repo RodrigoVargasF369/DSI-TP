@@ -23,3 +23,8 @@ Agregar comentarios útiles
 METODOS PARA AGREGAR A LOS DIAGRAMAS
     Resenia
         obtenerFechaResenia()
+
+12-11-2024
+ - corregir relaciones de regionvitivinicola, provincia y pais
+ - agregar db y respectiva conexion
+ - probar correcto funcionamiento
