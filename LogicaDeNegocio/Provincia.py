@@ -1,7 +1,18 @@
 from LogicaDeNegocio.Pais import Pais
-
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from ..Persistencia.Persistencia import Base
 
 class Provincia:
+
+    __tablename__ = 'provincia'
+    id = Column(Integer, primary_key=True)
+    nombre = Column(String)
+    pais_id = Column(Integer, ForeignKey('pais.id'))
+    
+    pais = relationship("Pais", back_populates="provincias")
+    regiones = relationship("RegionVitivinicola", back_populates="provincia")
+
     def __init__(self, nombre: str, pais: Pais) -> None:
         self.nombre = nombre
         self.pais = pais

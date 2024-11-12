@@ -1,7 +1,22 @@
 from LogicaDeNegocio.RegionVitivinicola import RegionVitivinicola
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from ..Persistencia.Persistencia import Base
 
+class Bodega(Base):
 
-class Bodega:
+    __tablename__ = 'bodega'
+    id = Column(Integer, primary_key=True)
+    coordenadasUbicacion = Column(String)
+    descripcion = Column(String)
+    historia = Column(String)
+    nombre = Column(String)
+    periodoActualizacion = Column(String)
+    region_id = Column(Integer, ForeignKey('region_vitivinicola.id'))
+
+    region_vitivinicola = relationship("RegionVitivinicola", back_populates="bodegas")
+    vinos = relationship("Vino", back_populates="bodega")
+
     def __init__(
         self,
         coordenadasUbicacion: str,

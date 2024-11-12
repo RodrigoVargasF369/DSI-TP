@@ -1,7 +1,18 @@
 from LogicaDeNegocio.Provincia import Provincia, Pais
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from ..Persistencia.Persistencia import Base
 
-
-class RegionVitivinicola:
+class RegionVitivinicola(Base):
+    
+    __tablename__ = 'region_vitivinicola'
+    id = Column(Integer, primary_key=True)
+    descripcion = Column(String)
+    nombre = Column(String)
+    provincia_id = Column(Integer, ForeignKey('provincia.id'))
+    
+    provincia = relationship("Provincia", back_populates="regiones")
+    bodegas = relationship("Bodega", back_populates="region_vitivinicola")
     def __init__(self, descripcion: str, nombre: str, provincia: Provincia) -> None:
         self.descripcion = descripcion
         self.nombre = nombre

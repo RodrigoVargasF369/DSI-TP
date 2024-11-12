@@ -1,4 +1,17 @@
-class Varietal:
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+from ..Persistencia.Persistencia import Base
+
+class Varietal(Base):
+    
+    __tablename__ = 'varietal'
+    id = Column(Integer, primary_key=True)
+    descripcion = Column(String)
+    porcentajeComposicion = Column(Integer)
+    tipoUva = Column(String)
+    
+    vinos = relationship("Vino", back_populates="varietal")
+
     def __init__(
         self, descripcion: str, porcentajeComposicion: int, tipoUva: str
     ) -> None:

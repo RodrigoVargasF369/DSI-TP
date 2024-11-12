@@ -1,9 +1,25 @@
 from LogicaDeNegocio.IteradorResenia import IteradorResenia
 from LogicaDeNegocio.Varietal import Varietal
 from LogicaDeNegocio.Bodega import Bodega
+from sqlalchemy import Column, Integer, String, Float ,ForeignKey
+from sqlalchemy.orm import relationship
+from ..Persistencia.Persistencia import Base
 
+class Vino(Base):
+    __tablename__ = 'vino'
+    id = Column(Integer, primary_key=True)
+    nombre = Column(String)
+    aniada = Column(Integer)
+    imagenEtiqueta = Column(String)  # Representación simplificada
+    notaDeCataBodega = Column(Float)
+    precioARS = Column(Float)
+    varietal_id = Column(Integer, ForeignKey('varietal.id'))
+    bodega_id = Column(Integer, ForeignKey('bodega.id'))
 
-class Vino:
+    varietal = relationship("Varietal", back_populates="vinos")
+    bodega = relationship("Bodega", back_populates="vinos")
+    resenias = relationship("Resenia", back_populates="vino")
+
     def __init__(
         self,
         nombre: str,

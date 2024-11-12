@@ -3,13 +3,16 @@ from LogicaDeNegocio.InterfaceIterador import InterfaceIterador
 class IteradorVino(InterfaceIterador):
 
     vinos = []
-    posicion = 0
+    posicion: int
+
     def __init__(self, objetos):
         self.vinos = objetos
+
     def getVinos(self):
         print(self.vinos)
+
     def primero(self):
-        posicion = 0
+        self.posicion = 0
 
     def haterminado(self):
         if self.posicion < len(self.vinos):
@@ -26,5 +29,3 @@ class IteradorVino(InterfaceIterador):
 
     def siguiente(self):
         self.posicion += 1
-
-

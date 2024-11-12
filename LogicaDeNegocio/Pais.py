@@ -1,4 +1,15 @@
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+from ..Persistencia.Persistencia import Base
+
 class Pais:
+
+    __tablename__ = 'pais'
+    id = Column(Integer, primary_key=True)
+    nombre = Column(String, unique=True)
+
+    provincias = relationship("Provincia", back_populates="pais")
+
     def __init__(self, nombre: str) -> None:
         self.nombre = nombre
         self._provincias = []

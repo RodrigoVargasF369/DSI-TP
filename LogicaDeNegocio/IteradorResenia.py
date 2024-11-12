@@ -3,18 +3,20 @@ from LogicaDeNegocio.InterfaceIterador import InterfaceIterador
 class IteradorResenia(InterfaceIterador):
 
     resenias = []
-    posicion = 0
+    posicion: int
+
     def __init__(self, objetos):
         self.resenias = objetos
 
     def primero(self):
-        posicion = 0
+        self.posicion = 0
 
     def haterminado(self):
         if self.posicion < len(self.resenias):
             return True
         else:
             return False
+        
     def getActual(self,fechaDesde,fechaHasta):
         return self.cumpleFiltro(fechaDesde,fechaHasta)
 
