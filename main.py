@@ -1,6 +1,7 @@
 # python -m pip install tkinter
 # python -m pip install PySimpleGUI
 # python -m pip install openpyxl
+# python -m pip install SQLAlchemy
 
 import PySimpleGUI as sg
 from Presentacion.PantallaRankingVinos import PantallaRankingVinos
