@@ -14,7 +14,7 @@ class Bodega(Base):
     periodoActualizacion = Column(String)
     region_id = Column(Integer, ForeignKey('region_vitivinicola.id'))
 
-    region_vitivinicola = relationship("RegionVitivinicola", back_populates="bodegas")
+    regionVitivinicola = relationship("RegionVitivinicola", back_populates="bodegas", lazy="joined")
     vinos = relationship("Vino", back_populates="bodega")
 
     def __init__(

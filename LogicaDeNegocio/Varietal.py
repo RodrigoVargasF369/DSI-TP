@@ -10,7 +10,7 @@ class Varietal(Base):
     porcentajeComposicion = Column(Integer)
     tipoUva = Column(String)
     
-    vinos = relationship("Vino", back_populates="varietal")
+    vinos = relationship("Vino", back_populates="varietal", lazy="joined")
 
     def __init__(
         self, descripcion: str, porcentajeComposicion: int, tipoUva: str

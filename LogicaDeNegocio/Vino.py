@@ -18,9 +18,9 @@ class Vino(Base):
     varietal_id = Column(Integer, ForeignKey('varietal.id'))
     bodega_id = Column(Integer, ForeignKey('bodega.id'))
 
-    varietal = relationship("Varietal", back_populates="vinos")
-    bodega = relationship("Bodega", back_populates="vinos")
-    resenias = relationship("Resenia", back_populates="vino") 
+    varietal = relationship("Varietal", back_populates="vinos", lazy="joined")
+    bodega = relationship("Bodega", back_populates="vinos", lazy="joined")
+    resenias = relationship("Resenia", back_populates="vino", lazy="joined") 
 
     def __init__(
         self,
@@ -31,7 +31,6 @@ class Vino(Base):
         precioARS: float,
         varietal: Varietal,
         bodega: Bodega,
-        resenias: List["Resenia"]
     ) -> None:
         self.nombre = nombre
         self.aniada = aniada
@@ -40,7 +39,7 @@ class Vino(Base):
         self.precioARS = precioARS
         self.varietal = varietal
         self.bodega = bodega
-        self.resenias = resenias
+        self.resenias = []
 
 
     # Metodos GET

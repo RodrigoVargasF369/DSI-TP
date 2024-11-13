@@ -11,8 +11,8 @@ class RegionVitivinicola(Base):
     nombre = Column(String)
     provincia_id = Column(Integer, ForeignKey('provincia.id'))
     
-    provincia = relationship("Provincia", back_populates="regiones")
-    bodegas = relationship("Bodega", back_populates="region_vitivinicola")
+    provincia = relationship("Provincia", back_populates="regiones", lazy="joined")
+    bodegas = relationship("Bodega", back_populates="regionVitivinicola")
 
     def __init__(self, descripcion: str, nombre: str, provincia: Provincia) -> None:
         self.descripcion = descripcion

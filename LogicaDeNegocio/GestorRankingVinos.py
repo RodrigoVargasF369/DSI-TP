@@ -77,9 +77,8 @@ class GestorRankingVinos:
         if not self.__get_confirmacion():
             return
         # !La funcion datos() es el reemplazo de la base de datos
-        vinos = datos()
-        #db_interface = DatabaseInterface()
-        #vinos = db_interface.get_all(Vino)
+        db_interface = DatabaseInterface()
+        vinos = db_interface.get_all(Vino)
         
         # vinos=datosejemplo()
         vinostipoPeriodo = self.tenesReseniaDeTipoEnPeriodo(vinos)

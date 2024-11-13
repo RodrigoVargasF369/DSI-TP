@@ -10,7 +10,7 @@ class Provincia(Base):
     nombre = Column(String)
     pais_id = Column(Integer, ForeignKey('pais.id'))
     
-    pais = relationship("Pais", back_populates="provincias")
+    pais = relationship("Pais", back_populates="provincias", lazy="joined")
     regiones = relationship("RegionVitivinicola", back_populates="provincia")
 
     def __init__(self, nombre: str, pais: Pais) -> None:
