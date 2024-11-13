@@ -2,7 +2,6 @@ from LogicaDeNegocio.IteradorVino import IteradorVino
 from LogicaDeNegocio.Vino import Vino
 from LogicaDeNegocio.InterfazExcel import InterfazExcel
 from Persistencia.Persistencia import DatabaseInterface
-from Persistencia.datos_mock import datos
 from datetime import datetime, date
 
 
