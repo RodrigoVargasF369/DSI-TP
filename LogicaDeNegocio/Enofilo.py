@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from ..Persistencia.Persistencia import Base
+from Persistencia.Persistencia import Base
 
 class Enofilo(Base):
     
@@ -8,7 +8,6 @@ class Enofilo(Base):
     id = Column(Integer, primary_key=True)
     apellido = Column(String)
     nombre = Column(String)
-    resenias = relationship("Resenia", back_populates="enofilo")
 
     def __init__(self, apellido: str, nombre: str) -> None:
         self.apellido = apellido

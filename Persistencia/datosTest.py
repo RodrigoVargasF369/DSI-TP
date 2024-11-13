@@ -5,6 +5,7 @@ from LogicaDeNegocio.Bodega import Bodega
 from LogicaDeNegocio.Varietal import Varietal
 from LogicaDeNegocio.Vino import Vino
 from LogicaDeNegocio.Resenia import Resenia
+from datetime import date
 
 
 def datos():
@@ -76,31 +77,37 @@ def datos():
     resenia3 = Resenia("Comentario 3", True, "2024-05-16", 1.1, vino3)
     resenia4 = Resenia("Comentario 4", False, "2024-03-24", 3.6, vino4)
     resenia5 = Resenia("Comentario 5", True, "2024-02-21", 2.2, vino5)
+    
     resenia6 = Resenia("Comentario 6", True, "2024-02-18", 1.6, vino1)
     resenia7 = Resenia("Comentario 7", False, "2024-03-16", 2.7, vino2)
     resenia8 = Resenia("Comentario 8", False, "2024-02-02", 2.9, vino3)
     resenia9 = Resenia("Comentario 9", True, "2024-04-11", 4.7, vino4)
     resenia10 = Resenia("Comentario 10", False, "2024-04-20", 2.0, vino5)
+
     resenia11 = Resenia("Comentario 11", False, "2024-04-24", 3.1, vino1)
     resenia12 = Resenia("Comentario 12", True, "2024-02-12", 1.9, vino2)
     resenia13 = Resenia("Comentario 13", False, "2024-05-09", 2.6, vino3)
     resenia14 = Resenia("Comentario 14", True, "2024-01-21", 2.4, vino4)
     resenia15 = Resenia("Comentario 15", True, "2024-03-05", 4.8, vino5)
+
     resenia16 = Resenia("Comentario10", False, "2023-07-04", 4.7, vino5)
     resenia17 = Resenia("Comentario20", True, "2023-10-03", 1.4, vino8)
     resenia18 = Resenia("Comentario30", False, "2024-01-24", 0.9, vino6)
     resenia19 = Resenia("Comentario40", False, "2024-03-04", 1.9, vino9)
     resenia20 = Resenia("Comentario50", True, "2023-07-12", 1.1, vino9)
+
     resenia21 = Resenia("Comentario60", False, "2024-05-04", 4.2, vinof)
     resenia22 = Resenia("Comentario70", True, "2024-02-26", 3.3, vinof)
     resenia23 = Resenia("Comentario80", False, "2023-06-11", 0.7, vinod)
     resenia24 = Resenia("Comentario90", True, "2023-08-28", 1.0, vino3)
     resenia25 = Resenia("Comentario100", True, "2023-09-18", 3.2, vinob)
+
     resenia26 = Resenia("Comentario101", True, "2023-11-26", 3.5, vinoa)
     resenia27 = Resenia("Comentario102", True, "2023-07-05", 2.0, vinoc)
     resenia28 = Resenia("Comentario103", False, "2023-08-01", 3.8, vinoc)
     resenia29 = Resenia("Comentario104", True, "2023-10-23", 3.8, vino6)
     resenia30 = Resenia("Comentario105", False, "2024-01-10", 2.0, vinoa)
+    
     resenia31 = Resenia("Comentario106", False, "2023-12-16", 1.8, vino9)
     resenia32 = Resenia("Comentario107", True, "2023-12-18", 4.0, vino3)
     resenia33 = Resenia("Comentario108", True, "2024-03-16", 4.0, vino2)

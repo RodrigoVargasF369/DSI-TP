@@ -1,9 +1,9 @@
 from LogicaDeNegocio.Pais import Pais
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from ..Persistencia.Persistencia import Base
+from Persistencia.Persistencia import Base
 
-class Provincia:
+class Provincia(Base):
 
     __tablename__ = 'provincia'
     id = Column(Integer, primary_key=True)

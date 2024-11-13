@@ -1,7 +1,8 @@
 from LogicaDeNegocio.IteradorVino import IteradorVino
 from LogicaDeNegocio.Vino import Vino
 from LogicaDeNegocio.InterfazExcel import InterfazExcel
-from Persistencia.datosTest import datos
+from Persistencia.Persistencia import DatabaseInterface
+from Persistencia.datos_mock import datos
 from datetime import datetime, date
 
 
@@ -77,6 +78,9 @@ class GestorRankingVinos:
             return
         # !La funcion datos() es el reemplazo de la base de datos
         vinos = datos()
+        #db_interface = DatabaseInterface()
+        #vinos = db_interface.get_all(Vino)
+        
         # vinos=datosejemplo()
         vinostipoPeriodo = self.tenesReseniaDeTipoEnPeriodo(vinos)
         # print(len(vinostipoPeriodo))

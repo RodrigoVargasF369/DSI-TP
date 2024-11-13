@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from ..Persistencia.Persistencia import Base
+from Persistencia.Persistencia import Base
 
-class Pais:
+class Pais(Base):
 
     __tablename__ = 'pais'
     id = Column(Integer, primary_key=True)

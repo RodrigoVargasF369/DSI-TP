@@ -1,23 +1,23 @@
-from LogicaDeNegocio.Vino import Vino
+from LogicaDeNegocio.Vino import Vino 
 from LogicaDeNegocio.auxFunc import *
-from datetime import date, datetime
+from datetime import date
 from sqlalchemy import Column, Integer, String, Float, Boolean, Date, ForeignKey
 from sqlalchemy.orm import relationship
-from ..Persistencia.Persistencia import Base 
+from Persistencia.Persistencia import Base 
 
 class Resenia(Base):
 
     __tablename__ = 'resenia'
+    
     id = Column(Integer, primary_key=True)
     comentario = Column(String)
     premium = Column(Boolean)
     fechaResenia = Column(Date)
     puntaje = Column(Float)
     vino_id = Column(Integer, ForeignKey('vino.id'))
-    enofilo_id = Column(Integer, ForeignKey('enofilo.id'))
 
-    vino = relationship("Vino", back_populates="resenias")
-    enofilo = relationship("Enofilo", back_populates="resenias")
+    vino = relationship("Vino", back_populates="resenias") 
+
     
     def __init__(
         self,
@@ -29,10 +29,11 @@ class Resenia(Base):
     ) -> None:
         self.comentario = comentario
         self.premium = premium
-        self.fechaResenia = datetime.strptime(fechaResenia[:10], "%Y-%m-%d").date()
+        self.fechaResenia = fechaResenia
         self.puntaje = puntaje
         self.vino = vino
         self.vino.resenias.append(self)
+
 
     # Metodos GET
 

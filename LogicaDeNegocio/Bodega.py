@@ -1,7 +1,7 @@
 from LogicaDeNegocio.RegionVitivinicola import RegionVitivinicola
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from ..Persistencia.Persistencia import Base
+from Persistencia.Persistencia import Base
 
 class Bodega(Base):
 

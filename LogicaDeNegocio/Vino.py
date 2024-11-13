@@ -1,16 +1,18 @@
-from LogicaDeNegocio.IteradorResenia import IteradorResenia
 from LogicaDeNegocio.Varietal import Varietal
 from LogicaDeNegocio.Bodega import Bodega
-from sqlalchemy import Column, Integer, String, Float ,ForeignKey
+from typing import List
+from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
-from ..Persistencia.Persistencia import Base
+from Persistencia.Persistencia import Base
+from LogicaDeNegocio.IteradorResenia import IteradorResenia
 
 class Vino(Base):
     __tablename__ = 'vino'
+    
     id = Column(Integer, primary_key=True)
     nombre = Column(String)
     aniada = Column(Integer)
-    imagenEtiqueta = Column(String)  # Representación simplificada
+    imagenEtiqueta = Column(String)
     notaDeCataBodega = Column(Float)
     precioARS = Column(Float)
     varietal_id = Column(Integer, ForeignKey('varietal.id'))
@@ -18,18 +20,18 @@ class Vino(Base):
 
     varietal = relationship("Varietal", back_populates="vinos")
     bodega = relationship("Bodega", back_populates="vinos")
-    resenias = relationship("Resenia", back_populates="vino")
+    resenias = relationship("Resenia", back_populates="vino") 
 
     def __init__(
         self,
         nombre: str,
         aniada: int,
-        imagenEtiqueta: bytes,
+        imagenEtiqueta: str,
         notaDeCataBodega: float,
         precioARS: float,
         varietal: Varietal,
         bodega: Bodega,
-        resenias: list,
+        resenias: List["Resenia"]
     ) -> None:
         self.nombre = nombre
         self.aniada = aniada
@@ -39,6 +41,7 @@ class Vino(Base):
         self.varietal = varietal
         self.bodega = bodega
         self.resenias = resenias
+
 
     # Metodos GET
 
